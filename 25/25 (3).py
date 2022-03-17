@@ -6,20 +6,15 @@
 # поэтому для этого диапазона вывод на экране должна содержать следующие значения:
 # https://inf-ege.sdamgia.ru/problem?id=27857
 
-maxx = 0
-pairs = []
+max_dividers = 0
 
 for num in range(84052, 84131):
-    count = 0
-    for i in range(1, num+1):
+    dividers = 0
+    for i in range(1, num+1):       # Считаем количество делителей числа
         if num % i == 0:
-            count += 1
-            pairs.append([count, num])  # Создаем список списков вида [[кол-во делителей, число], ..., ...] 
-    maxx = max(maxx, count)             # Выбираем самое большое количество делителей
+            dividers += 1
+    if dividers > max_dividers:     # Если количество делителей больше самого большого количества делителей, то
+        max_dividers = dividers     # перезаписываем самое большое количество и запоминаем число
+        min_num = i
 
-
-# Ищем первое число с самым большим количеством делителей. Первое найденное и будет самым маленьким
-for pair in pairs:
-    if pair[0] == maxx:
-        print(pair)
-        break
+print(max_dividers, min_num)
