@@ -14,7 +14,7 @@ for i in range(0, len(nums)-1):                                     # Прохо
 for i in range(len(nums) - 1):                                      # Двойным циклом проходимся по индексам и ищем пары                                                            
     for j in range(i + 1, len(nums)):
         if nums[i] or nums[j]:                                      # Если выполняется условие (Условие в каждой задаче своё!)                        
-            pairs.append([nums[i], nums[j]])                        # Добавляем пару в список пар
+            pairs.append([nums[i], nums[j]])                        # Добавляем пару в список всех пар
 
 
 # ВЫВОД РЕЗУЛЬТАТА
