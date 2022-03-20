@@ -12,8 +12,8 @@
 # https://inf-ege.sdamgia.ru/problem?id=33496
 # Объяснения в 26 (6)
 
-cargos = sorted(list(map(int, open("26 (6).txt", "r").read().splitlines()[1:])))
-capacity = int(open("26 (6).txt", "r").readline().split(" ")[1])
+cargos = sorted(list(map(int, open("26 (7).txt", "r").read().splitlines()[1:])))
+capacity = int(open("26 (7).txt", "r").readline().split(" ")[1])
 remains = [x for x in cargos if not (210 <= x <= 220)] 
 memory = [x for x in cargos if 210 <= x <= 220]
 n = len(cargos)
