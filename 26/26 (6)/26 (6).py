@@ -17,20 +17,27 @@ cargos = sorted(list(map(int, open("26 (6).txt", "r").read().splitlines()[1:])))
 # Считываем общий объём памяти
 capacity = int(open("26 (6).txt", "r").readline().split(" ")[1])
 
-c = len([x for x in cargos if 200 <= x <= 210])         # Количество грузов 200-210 кг
 remains = [x for x in cargos if not (200 <= x <= 210)]  # Список оставшихся грузов
 memory = [x for x in cargos if 200 <= x <= 210]         # Сюда будем добавлять грузы. Изначально тут уже все грузы 200-210
 
 for i in range(len(remains)):                           # С помощью этого цикла узнаем
     if sum(memory) + remains[i] <= capacity:            # Максимальное количество грузов
         memory.append(remains[i])
-        c +=  1                                         # Счетчик количества грузов
 
-memory.pop()                                            # Вырезаем из грузов 2 элемента, чтобы
-memory.pop()                                            # Можно было уместить один максимально большой
+# Вычитая из найденной суммы вес наибольшего груза в текущей последовательности, будем пробовать прибавлять 
+# грузы с большим весом. Далее такую же последовательность действий применим ко второму по величине грузу, 
+# потом к третьему и т. д.
+n = len(cargos)
+sum = sum(memory)
+for i in range(len(memory), 1, -1):
+    sum -= remains[i]
+    t = i
+    for j in range(len(memory), n):
+        if (sum + remains[j]) <= capacity:
+            t = j
+        else:
+            break
+    sum += remains[t]
+    n = t-1
 
-biggest = capacity - sum(memory)                        # Вычисляем максимально большой груз
-while biggest not in remains:
-    biggest -= 1 
-memory.append(biggest)                                  # Добавляем в список наших грузов
-print(c, sum(memory))                                   # Выводим количество и сумму с учетом максимально большого груза
+print(len(memory), sum)
