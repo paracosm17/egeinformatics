@@ -3,6 +3,4 @@
 # при этом не менее трёх букв E.
 # https://inf-ege.sdamgia.ru/problem?id=40740
 
-f = open("24 (11).txt", "r").read().split("A")
-mylist = [i for i in f if i.count("E") >= 3]
-print(max(map(len, mylist)))
+print(max(map(len, [i for i in open("24 (11).txt", "r").read().split("A") if i.count("E") >= 3])))
