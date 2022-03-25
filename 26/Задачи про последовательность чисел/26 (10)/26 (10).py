@@ -7,11 +7,12 @@
 # В ответе запишите два целых числа: сначала количество пар, затем наибольшее среднее арифметическое.
 # https://inf-ege.sdamgia.ru/problem?id=35484
 
+from itertools import combinations
+
 nums = list(map(int, open("26 (10).txt", "r").read().splitlines()[1:]))
 result = []
-for i in range(len(nums) - 1):                                                           
-    for j in range(i + 1, len(nums)):
-        if nums[i] % 2 == 0 and nums[j] % 2 == 0: 
-            if (nums[i] + nums[j]) // 2 in nums:
-                    result.append((nums[i] + nums[j]) // 2)
+for i, j in combinations(nums, r=2):
+    if i % 2 == 0 and j % 2 == 0: 
+        if (i + j) // 2 in nums:
+                result.append((i + j) // 2)
 print(len(result), max(result))
