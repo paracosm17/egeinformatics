@@ -5,13 +5,13 @@
 # Порядок элементов в паре не важен.
 # https://inf-ege.sdamgia.ru/problem?id=37337
 
+from itertools import combinations
 nums = list(map(int, open("17 (3).txt", "r").read().splitlines()))  # Открываем файл и формируем список из чисел
 pairs = []                                                          # Тут будем сохранять пары соответствующие
                                                                     # условию
 
-for i in range(len(nums) - 1):                                      # Двойным циклом проходимся по индексам и ищем пары                                                            
-    for j in range(i + 1, len(nums)):
-        if nums[i] % 160 != nums[j] % 160 and (nums[i] % 7 == 0 or nums[j] % 7 == 0):
-            pairs.append([nums[i], nums[j]])
+for x, y in combinations(nums, r=2):
+    if x % 160 != y % 160 and (x % 7 == 0 or y % 7 == 0):
+        pairs.append([x, y])
 
 print(len(pairs), max(list(map(sum, pairs))))                       # Тут всё то же самое, что и в 17 (1)
