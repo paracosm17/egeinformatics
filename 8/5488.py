@@ -6,6 +6,6 @@
 # цвет ракет в последовательности может повторяться)?
 # https://inf-ege.sdamgia.ru/problem?id=5488
 
-from itertools import *
+from itertools import product
 
 print(len(tuple(product("12345", repeat=4))))
