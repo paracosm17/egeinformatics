@@ -3,10 +3,10 @@
 # координат одной шахматной клетки?
 # https://inf-ege.sdamgia.ru/problem?id=4790
 
-from itertools import *
+from itertools import product, count
 
-for i in range(100):
+for i in count(1):
     a = len(tuple(product("xy", repeat=i)))
-    print(a)
     if a >= 8*8:
+        print(a)
         break

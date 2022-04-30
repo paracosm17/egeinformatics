@@ -3,11 +3,13 @@
 # Каждая буква может входить в слово несколько раз. Слова не обязательно должны быть осмысленными словами русского языка.
 # https://inf-ege.sdamgia.ru/problem?id=7667
 
-from itertools import *
+from itertools import product
 
 counter = 0
 
 for i in product("ЕГЭ", repeat=5):
-    if i[0] != "Г":
-        counter += 1
-        print(f"{counter}.\t{' '.join(i)}")
+    if i[0] == "Г":
+        continue
+    counter += 1
+
+print(counter)

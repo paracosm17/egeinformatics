@@ -4,6 +4,6 @@
 # используя код азбуки Морзе длиной не менее четырёх и не более пяти сигналов (точек и тире)?
 # https://inf-ege.sdamgia.ru/problem?id=4556
 
-from itertools import *
+from itertools import product
 
 print(len(tuple(product(".-", repeat=4))) + len(tuple(product(".-", repeat=5))))

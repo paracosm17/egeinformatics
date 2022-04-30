@@ -4,10 +4,11 @@
 # чтобы с его помощью можно было передать 18 различных сигналов?
 # https://inf-ege.sdamgia.ru/problem?id=4788
 
-from itertools import *
+from itertools import product, count
 
-for i in range(100):
+for i in count(1):
+    '''count - генератор. Будет бесконечно возвращать числа, начиная с 1'''
     a = len(tuple(product("123", repeat=i)))
-    print(f"Лампочек: {i}\t", f"Различных сигналов: {a}")
     if a >= 18:
+        print(f"Лампочек: {i}, Различных сигналов: {a}")
         break

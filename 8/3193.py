@@ -1,24 +1,15 @@
 # Слова по порядку
 # Все 5-буквенные слова, составленные из букв А, О, У, записаны в алфавитном порядке. Вот начало списка:
-
 # 1. ААААА
-
 # 2. ААААО
-
 # 3. ААААУ
-
 # 4. АААОА
-
 # ……
-
 # Запишите слово, которое стоит на 210-м месте от начала списка.
 
-from itertools import *
+from itertools import product
 
-counter = 0
-
-for i in product("АОУ", repeat=5):
-    counter += 1
-    print(f"{counter}.\t{' '.join(i)}")
-    if counter == 210:
+for i, combination in enumerate(product("АОУ", repeat=5)):
+    if i + 1 == 210:
+        print(combination)
         break
