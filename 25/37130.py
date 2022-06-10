@@ -9,14 +9,14 @@
 nums = []
 num = 600001       
 
-def f(num):                         # Всё то же самое, что и в 25 (7), только немного другое условие для функции
+def f(num):
     for i in range(17, num, 10):
         if num % i == 0:
-            return (i)
+            return i
     return False
 
 while len(nums) < 5:
-    M = f(num=num)
+    M = f(num)
     if M:
         nums.append([num, M])
     num += 1
